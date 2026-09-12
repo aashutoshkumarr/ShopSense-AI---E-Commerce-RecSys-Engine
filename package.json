@@ -1,0 +1,61 @@
+{
+  "name": "shopsense-recsys-engine",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Production-grade e-commerce platform & recommendation system featuring LightGBM LambdaMART ranking, behavioral RFM customer segmentation, real-time event telemetry, and fintech wallet engine.",
+  "type": "module",
+  "scripts": {
+    "dev": "node ./node_modules/tsx/dist/cli.mjs server.ts",
+    "build:client": "node ./node_modules/vite/bin/vite.js build",
+    "build:server": "node ./node_modules/esbuild/bin/esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node dist/server.cjs",
+    "start:prod": "npm run build && npm start",
+    "docker:up": "docker compose up --build -d",
+    "docker:down": "docker compose down",
+    "docker:deps": "docker compose up postgres redis -d",
+    "docker:logs": "docker compose logs -f",
+    "preview": "node ./node_modules/vite/bin/vite.js preview",
+    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true });\"",
+    "lint": "node ./node_modules/typescript/bin/tsc --noEmit",
+    "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
+    "test": "node --import tsx/esm --test tests/**/*.test.ts"
+  },
+  "keywords": [
+    "recsys",
+    "recommendation-engine",
+    "lambdamart",
+    "lightgbm",
+    "rfm-segmentation",
+    "ecommerce",
+    "personalization",
+    "vector-search",
+    "typescript",
+    "react19"
+  ],
+  "author": "ShopSense Engineering",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/canvas-confetti": "^1.9.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "canvas-confetti": "^1.9.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "recharts": "^3.10.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2"
+  }
+}

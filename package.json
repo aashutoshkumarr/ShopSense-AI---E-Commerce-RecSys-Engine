@@ -20,7 +20,7 @@
     "lint": "node ./node_modules/typescript/bin/tsc --noEmit",
     "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
     "audit": "node scripts/deploy-auditor.cjs",
-    "test": "node --import tsx/esm --test tests/**/*.test.ts"
+    "test": "node --import tsx/esm --test \"tests/**/*.test.ts\""
   },
   "keywords": [
     "recsys",

@@ -33,43 +33,9 @@
 
 ShopSense AI is architected as an enterprise-grade Commerce OS with a decoupled backend-for-frontend (BFF) gateway, modular domain bounded contexts, distributed cache hierarchies, and resilience guards:
 
-```mermaid
-graph TD
-    classDef client fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef gateway fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
-    classDef engine fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#f8fafc;
-    classDef data fill:#451a03,stroke:#fbbf24,stroke-width:2px,color:#f8fafc;
-
-    User[Shopper / Seller / Admin Portal]:::client -->|HTTPS / W3C traceparent| Gateway[API Gateway & BFF Layer]:::gateway
-
-    subgraph Resilience & Observability
-        Gateway --> CB[Netflix Hystrix Circuit Breakers]:::gateway
-        Gateway --> OTel[OpenTelemetry Distributed Tracing]:::gateway
-    end
-
-    subgraph Commerce Domains
-        CB --> Store[Storefront & Buy Box Repricer]:::client
-        CB --> Grocery[10-Min Groceries & Dark Store Fleet]:::client
-        CB --> Pharmacy[Apollo 24/7 E-Rx & OCR Compliance]:::client
-        CB --> Bazaar[Amazon Bazaar Sub-₹999 Value Hub]:::client
-        CB --> OLX[P2P Marketplace & Camera ReCommerce]:::client
-        CB --> Fintech[UPI 2.0 & Double-Entry Ledger]:::client
-    end
-
-    subgraph RecSys & AI Platform
-        Store --> RecEngine[Two-Stage RecSys Engine]:::engine
-        RecEngine --> Retrieval[Multi-Channel Retrieval: Vector + CF + Markov]:::engine
-        RecEngine --> FeatureStore[Online Feature Store: 6 Real-Time Signals]:::engine
-        RecEngine --> LambdaMART[LightGBM LambdaMART GBDT Ranker]:::engine
-        RecEngine --> MMR[MMR Diversity & Quota Constraint Engine]:::engine
-    end
-
-    subgraph Storage & Infrastructure
-        RecEngine --> Redis[(Redis Distributed Keyspace: TTL + Atomic Incr)]:::data
-        Store & Fintech & OLX --> Postgres[(PostgreSQL 16 + pgvector HNSW)]:::data
-        Grocery --> SSE[Server-Sent Events: Fleet GPS Waypoints]:::engine
-    end
-```
+<p align="center">
+  <img src="assets/system-architecture.svg" alt="ShopSense AI Commerce OS Enterprise Architecture" width="100%" />
+</p>
 
 ---
 
@@ -167,22 +133,16 @@ stateDiagram-v2
 
 ## 🛒 Multi-Tenant Commerce Verticals
 
-```mermaid
-flowchart LR
-    A[ShopSense Commerce OS] --> B[Storefront & Buy Box]
-    A --> C[Quick-Commerce 10-Min Groceries]
-    A --> D[Apollo 24/7 E-Pharmacy]
-    A --> E[Amazon Bazaar Sub-₹999 Hub]
-    A --> F[OLX Camera ReCommerce]
-    A --> G[NPCI UPI 2.0 Fintech Wallet]
+| Commerce Vertical | Primary Innovation | Core Engine & Safety Guarantees |
+| :--- | :--- | :--- |
+| **🛒 Flagship Storefront** | Multi-seller catalog & Buy Box winner | Dynamic 3-strategy algorithmic repricer (Aggressive 4%, Balanced 2%, Profit 1%) |
+| **⚡ 10-Min Groceries** | Ultra-fast dark store micro-fulfillment | Live SSE GPS stream & doorstep 4-digit OTP handshake |
+| **💊 Apollo 24/7 Pharmacy** | Tele-health & regulated medicines | OCR active salt extraction & Schedule H compliance gating |
+| **🏷️ Amazon Bazaar** | High-velocity value deals (sub-₹999) | ValueScore ranking formula & progressive multi-buy discounts |
+| **📸 OLX ReCommerce** | P2P gadget resale with camera inspection | HTML5 `getUserMedia` live camera viewfinder + ML fraud guard |
+| **💳 NPCI UPI 2.0 Fintech** | Instant peer & merchant settlement | Double-entry ledger accounts with 4-digit MPIN security |
+| **🌍 Global FX Engine** | Cross-border commerce in 6 currencies | Real-time FX matrix & localized statutory tax (GST/VAT/Sales Tax) |
 
-    B --> B1[Dynamic 3-Strategy Algorithmic Repricer]
-    C --> C1[Dark Store Dispatch & SSE GPS Streaming]
-    D --> D1[OCR Prescriptions & Schedule H Compliance]
-    E --> E1[ValueScore Formula & Multi-Buy Discounts]
-    F --> F1[Live Camera Viewfinder + Scratch Inspection]
-    G --> G1[Atomic Double-Entry Ledger & PIN Security]
-```
 
 ### 1. 📸 OLX ReCommerce with Live Device Camera
 - **HTML5 `getUserMedia` Viewfinder**: Allows community sellers to launch their device camera, align products within an on-screen reticle, and snap high-resolution inspection photos.

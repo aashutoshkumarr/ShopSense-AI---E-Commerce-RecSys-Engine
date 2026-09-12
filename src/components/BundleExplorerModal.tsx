@@ -119,7 +119,7 @@ export const BundleExplorerModal: React.FC<BundleExplorerModalProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-300">
-                FAANG-grade affinity co-purchasing engine: unlock verified ecosystem discounts
+                Intelligent affinity co-purchasing engine: unlock verified ecosystem discounts
               </p>
             </div>
           </div>

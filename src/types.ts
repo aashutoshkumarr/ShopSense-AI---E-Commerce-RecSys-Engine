@@ -843,7 +843,7 @@ export interface AspectSentimentScore {
 }
 
 // ==========================================
-// 🏆 FAANG FLAGSHIP EXTENSIONS
+// 🏆 ENTERPRISE COMMERCE EXTENSIONS
 // ==========================================
 
 export interface Seller {

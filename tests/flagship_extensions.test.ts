@@ -17,7 +17,7 @@ import { runRecSysBenchmark } from '../src/engine/benchmarkService';
 import { getSmartProductBundle, getAllCatalogBundles } from '../src/engine/bundleService';
 import { mockProducts } from '../src/data/products';
 
-describe('FAANG Flagship Extensions Test Suite', () => {
+describe('Enterprise Commerce Flagship Extensions Test Suite', () => {
 
   // 1. Amazon-Grade Buy Box & Dynamic Repricer
   describe('Amazon-Grade Multi-Seller Buy Box & Dynamic Repricer', () => {

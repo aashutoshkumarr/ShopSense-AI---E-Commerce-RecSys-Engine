@@ -30,7 +30,7 @@ describe('ShopSense AI Commerce OS - Phase 2 & 3 Data & Identity Suite', () => {
       assert.strictEqual(darkStores.rowCount, 3, 'Expected 3 seeded dark stores');
     });
 
-    test('should adhere to FAANG hierarchical Redis keyspaces', () => {
+    test('should adhere to standard hierarchical Redis keyspaces', () => {
       assert.strictEqual(
         RedisKeyspaceService.keyspace.rec('user-101', 'grocery'),
         'recs:user-101:grocery'

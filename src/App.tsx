@@ -1045,7 +1045,7 @@ function AppContent() {
           </div>
         )}
 
-        {/* VIEW 9: FAANG OBSERVABILITY & DISTRIBUTED TRACING CONSOLE */}
+        {/* VIEW 9: DISTRIBUTED TRACING & OBSERVABILITY CONSOLE */}
         {activeTab === 'observability' && (
           <ObservabilityConsole />
         )}

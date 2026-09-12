@@ -1,7 +1,7 @@
 # ShopSense AI Commerce OS — Master Architecture & Engineering Guide
 
 ## Executive Overview
-**ShopSense AI** is an enterprise-grade, FAANG-caliber **AI-Powered Commerce Operating System (Commerce OS)**. Rather than assembling disconnected application clones, it delivers a **Unified Modular Commerce Core** coupled with a **Centralized Multi-Domain AI Platform**, supporting:
+**ShopSense AI** is an enterprise-grade, production-scale **AI-Powered Commerce Operating System (Commerce OS)**. Rather than assembling disconnected application clones, it delivers a **Unified Modular Commerce Core** coupled with a **Centralized Multi-Domain AI Platform**, supporting:
 1. **Consumer Super App**: Flagship DTC Tech Storefront, Quick-Commerce Groceries (10-min SLA), Apollo E-Health & Pharmacy, Amazon-style Bazaar Value-Commerce, and OLX-style C2C Marketplace.
 2. **Merchant Center (Seller Portal)**: Multi-seller Buy Box repricing engine, inventory allocation, dynamic margin floor safeguards, and AI copywriting assistant.
 3. **Pharmacy Regulatory & Dispensing Hub**: Real-time OCR chemical salt extraction, registered pharmacist audit logging (`KA-PH-39402`), generic substitute mapping, and Schedule H drug safety checkout gating.

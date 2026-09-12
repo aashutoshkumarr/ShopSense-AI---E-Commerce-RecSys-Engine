@@ -402,7 +402,7 @@ async function startServer() {
   app.use(telemetryMiddleware);
   app.use(authenticate);
 
-  // Modular FAANG Architecture Routers
+  // Core RecSys & Telemetry Routers
   app.use('/api', recommendationRouter);
   app.use('/api', catalogRouter);
   app.use('/api/events-bus', eventRouter);

@@ -11,7 +11,7 @@ import { cacheServiceInstance, CacheService } from '../src/backend/services/Cach
 import { modelRegistryInstance, DEFAULT_GATING_CRITERIA } from '../ml/registry/ModelRegistry';
 import { modelMonitorInstance } from '../ml/monitoring/ModelMonitor';
 
-describe('FAANG Target Architecture & Modular RecSys Suite', () => {
+describe('Target Systems Architecture & Modular RecSys Suite', () => {
   const alex = mockPersonas[0];
   const testProduct = mockProducts[0];
 

@@ -25,7 +25,7 @@ export class RedisKeyspaceService {
     return RedisKeyspaceService.instance;
   }
 
-  // --- Key Name Conventions (FAANG standard namespace hierarchy) ---
+  // --- Key Name Conventions (Hierarchical namespace pattern) ---
 
   public static keyspace = {
     rec: (userId: string, domain: string = 'flagship') => `recs:${userId}:${domain}`,

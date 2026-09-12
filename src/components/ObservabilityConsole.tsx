@@ -1,5 +1,5 @@
 /**
- * ShopSense AI Commerce OS — FAANG Observability & Distributed Tracing Console
+ * ShopSense AI Commerce OS — Distributed Tracing & Observability Console
  * 
  * Provides real-time OpenTelemetry trace flame graphs, SLA latency percentiles,
  * and interactive Netflix Hystrix-style circuit breaker controls.
@@ -114,7 +114,7 @@ export const ObservabilityConsole: React.FC = () => {
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 Observability &amp; Distributed Tracing Console
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-mono font-bold">
-                  FAANG Tier-1
+                  Production Tier-1
                 </span>
               </h1>
               <p className="text-xs text-slate-500 mt-0.5">

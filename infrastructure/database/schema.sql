@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ShopSense AI Commerce OS — PostgreSQL + pgvector Master Schema
--- Target Architecture: FAANG-Grade Online Transactional, Search & RecSys Store
+-- Target Architecture: High-Throughput Online Transactional, Search & RecSys Store
 -- ============================================================================
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";

@@ -75,7 +75,7 @@ export const BenchmarkPlayground: React.FC = () => {
               <Activity className="h-5 w-5" />
             </div>
             <h2 className="text-xl font-bold text-white">
-              FAANG RecSys Production Benchmark &amp; SLA Playground
+              High-Throughput RecSys Production Benchmark &amp; SLA Playground
             </h2>
           </div>
           <p className="text-xs text-slate-400 max-w-2xl">

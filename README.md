@@ -29,7 +29,7 @@
 
 ## 🚀 Architectural Overview
 
-**ShopSense AI** is an enterprise-grade Commerce Operating System (Commerce OS) engineered according to Tier-1 FAANG distributed systems standards. It features a decoupled Backend-for-Frontend (BFF) gateway, modular domain bounded contexts, automated circuit breaker resilience, distributed OpenTelemetry tracing, and a multi-stage machine learning recommendation pipeline.
+**ShopSense AI** is an enterprise-grade Commerce Operating System (Commerce OS) engineered for high-throughput, low-latency distributed commerce. It features a decoupled Backend-for-Frontend (BFF) gateway, modular domain bounded contexts, automated circuit breaker resilience, distributed OpenTelemetry tracing, and a multi-stage machine learning recommendation pipeline.
 
 ```mermaid
 graph TD
@@ -96,7 +96,7 @@ graph TD
       <p align="center"><em>Real-time multi-channel candidate generation, feature store signals, and LightGBM LambdaMART ranking attribution.</em></p>
     </td>
     <td width="50%">
-      <h4 align="center">⚡ FAANG Distributed Tracing & Circuit Breakers</h4>
+      <h4 align="center">⚡ Distributed Tracing & Circuit Breakers</h4>
       <img src="assets/shopsense-observability.png" alt="OpenTelemetry Observability Console" width="100%" />
       <p align="center"><em>W3C traceparent waterfall spans, Netflix Hystrix circuit breaker states, and live P50/P95/P99 latency SLAs.</em></p>
     </td>
@@ -170,7 +170,7 @@ graph TD
 
 ## 🧪 Verification & Quality Gates
 
-ShopSense AI strictly adheres to FAANG CI/CD automated validation with a **100% pass rate** across all suites:
+ShopSense AI strictly adheres to rigorous CI/CD automated validation with a **100% pass rate** across all suites:
 
 | Verification Gate | Command | Result | Status |
 | :--- | :--- | :--- | :--- |

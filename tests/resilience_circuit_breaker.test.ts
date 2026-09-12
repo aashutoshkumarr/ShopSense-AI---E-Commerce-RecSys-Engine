@@ -2,7 +2,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { CircuitBreaker, circuitBreakerRegistry } from '../src/backend/infrastructure/resilience/circuitBreaker';
 
-describe('FAANG Resilience & Circuit Breaker Engine Suite', () => {
+describe('Distributed Resilience & Circuit Breaker Engine Suite', () => {
 
   test('should initialize in CLOSED state with 0% failure rate', () => {
     const breaker = new CircuitBreaker({

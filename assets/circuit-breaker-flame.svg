@@ -1,0 +1,146 @@
+<svg width="1100" height="280" viewBox="0 0 1100 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="breaker-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="280" rx="16" fill="#090d16" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- LEFT SECTION: CIRCUIT BREAKER STATE MACHINE -->
+  <g transform="translate(30, 25)">
+    <text x="0" y="20" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="800">
+      ⚡ Netflix Hystrix / Resilience4j State Machine
+    </text>
+    <text x="0" y="38" fill="#94a3b8" font-family="sans-serif" font-size="11">
+      Automatic fail-fast bypass &amp; degraded fallback protection
+    </text>
+
+    <!-- CLOSED STATE -->
+    <g transform="translate(0, 60)">
+      <rect width="140" height="130" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <circle cx="20" cy="24" r="6" fill="#34d399" />
+      <text x="34" y="28" fill="#34d399" font-family="sans-serif" font-size="13" font-weight="800">CLOSED</text>
+      <text x="12" y="55" fill="#a7f3d0" font-family="sans-serif" font-size="10">&bull; Normal traffic</text>
+      <text x="12" y="75" fill="#a7f3d0" font-family="sans-serif" font-size="10">&bull; Failure &lt; 50%</text>
+      <text x="12" y="95" fill="#a7f3d0" font-family="sans-serif" font-size="10">&bull; Latency &lt; SLA</text>
+      <rect x="10" y="105" width="120" height="16" rx="4" fill="#022c22" />
+      <text x="70" y="116" fill="#34d399" font-family="monospace" font-size="8" text-anchor="middle">Passes Requests</text>
+    </g>
+
+    <!-- Transition CLOSED -> OPEN -->
+    <path d="M145 105 L180 105" stroke="#ef4444" stroke-width="2" />
+    <polygon points="180,101 188,105 180,109" fill="#ef4444" />
+    <text x="165" y="95" fill="#f87171" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">Trip &gt;50%</text>
+
+    <!-- OPEN STATE -->
+    <g transform="translate(190, 60)">
+      <rect width="140" height="130" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="1.5" />
+      <circle cx="20" cy="24" r="6" fill="#f87171" />
+      <text x="34" y="28" fill="#f87171" font-family="sans-serif" font-size="13" font-weight="800">OPEN</text>
+      <text x="12" y="55" fill="#fecaca" font-family="sans-serif" font-size="10">&bull; Fail-fast bypass</text>
+      <text x="12" y="75" fill="#fecaca" font-family="sans-serif" font-size="10">&bull; Instant fallback</text>
+      <text x="12" y="95" fill="#fecaca" font-family="sans-serif" font-size="10">&bull; 0ms thread block</text>
+      <rect x="10" y="105" width="120" height="16" rx="4" fill="#200505" />
+      <text x="70" y="116" fill="#f87171" font-family="monospace" font-size="8" text-anchor="middle">Executes Fallback</text>
+    </g>
+
+    <!-- Transition OPEN -> HALF-OPEN -->
+    <path d="M335 105 L370 105" stroke="#f59e0b" stroke-width="2" />
+    <polygon points="370,101 378,105 370,109" fill="#f59e0b" />
+    <text x="355" y="95" fill="#fbbf24" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">10s Sleep</text>
+
+    <!-- HALF-OPEN STATE -->
+    <g transform="translate(380, 60)">
+      <rect width="140" height="130" rx="10" fill="#451a03" stroke="#f59e0b" stroke-width="1.5" />
+      <circle cx="20" cy="24" r="6" fill="#fbbf24" />
+      <text x="34" y="28" fill="#fbbf24" font-family="sans-serif" font-size="13" font-weight="800">HALF_OPEN</text>
+      <text x="12" y="55" fill="#fef3c7" font-family="sans-serif" font-size="10">&bull; Canary probe trial</text>
+      <text x="12" y="75" fill="#fef3c7" font-family="sans-serif" font-size="10">&bull; 3 probe attempts</text>
+      <text x="12" y="95" fill="#fef3c7" font-family="sans-serif" font-size="10">&bull; Auto-reset check</text>
+      <rect x="10" y="105" width="120" height="16" rx="4" fill="#1c0a00" />
+      <text x="70" y="116" fill="#fbbf24" font-family="monospace" font-size="8" text-anchor="middle">Probe Success</text>
+    </g>
+
+    <!-- Loop back HALF-OPEN -> CLOSED -->
+    <path d="M450 195 L450 215 L70 215 L70 195" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 2" />
+    <polygon points="67,196 70,188 73,196" fill="#10b981" />
+    <text x="260" y="228" fill="#34d399" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">Canary Succeeded &bull; Circuit Restored to CLOSED</text>
+  </g>
+
+  <!-- DIVIDER -->
+  <line x1="560" y1="20" x2="560" y2="260" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- RIGHT SECTION: OPENTELEMETRY W3C FLAME GRAPH -->
+  <g transform="translate(585, 25)">
+    <text x="0" y="20" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="800">
+      🔥 OpenTelemetry W3C Distributed Flame Graph
+    </text>
+    <text x="0" y="38" fill="#94a3b8" font-family="sans-serif" font-size="11">
+      traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+    </text>
+
+    <!-- Span 1: Root HTTP Request -->
+    <g transform="translate(0, 55)">
+      <rect width="480" height="28" rx="6" fill="#3b82f6" />
+      <text x="12" y="18" fill="#ffffff" font-family="monospace" font-size="11" font-weight="700">HTTP POST /api/recommendations</text>
+      <text x="468" y="18" fill="#ffffff" font-family="monospace" font-size="11" font-weight="700" text-anchor="end">23.4 ms</text>
+    </g>
+
+    <!-- Span 2: PostgreSQL User Vector Fetch -->
+    <g transform="translate(25, 90)">
+      <rect width="110" height="26" rx="6" fill="#0ea5e9" />
+      <text x="8" y="17" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700">db.query</text>
+      <text x="102" y="17" fill="#ffffff" font-family="monospace" font-size="10" text-anchor="end">2.1ms</text>
+    </g>
+
+    <!-- Span 3: Redis Cache Check -->
+    <g transform="translate(145, 90)">
+      <rect width="80" height="26" rx="6" fill="#e11d48" />
+      <text x="8" y="17" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700">redis.get</text>
+      <text x="72" y="17" fill="#ffffff" font-family="monospace" font-size="10" text-anchor="end">0.7ms</text>
+    </g>
+
+    <!-- Span 4: RecSys Pipeline Execution -->
+    <g transform="translate(235, 90)">
+      <rect width="245" height="26" rx="6" fill="#8b5cf6" />
+      <text x="8" y="17" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700">recsys.pipeline.execute</text>
+      <text x="237" y="17" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700" text-anchor="end">16.8ms</text>
+    </g>
+
+    <!-- Span 5: LambdaMART LTR In-Memory Score -->
+    <g transform="translate(260, 124)">
+      <rect width="130" height="24" rx="5" fill="#6366f1" />
+      <text x="8" y="16" fill="#ffffff" font-family="monospace" font-size="9" font-weight="700">lambdamart.rank</text>
+      <text x="122" y="16" fill="#ffffff" font-family="monospace" font-size="9" text-anchor="end">8.9ms</text>
+    </g>
+
+    <!-- Span 6: MMR Diversity Rerank -->
+    <g transform="translate(400, 124)">
+      <rect width="80" height="24" rx="5" fill="#10b981" />
+      <text x="8" y="16" fill="#ffffff" font-family="monospace" font-size="9" font-weight="700">mmr.rerank</text>
+      <text x="72" y="16" fill="#ffffff" font-family="monospace" font-size="9" text-anchor="end">4.2ms</text>
+    </g>
+
+    <!-- SLA Latency Percentile Badges -->
+    <g transform="translate(0, 165)">
+      <rect width="150" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="700">P50 MEDIAN SLA</text>
+      <text x="12" y="42" fill="#34d399" font-family="monospace" font-size="16" font-weight="900">0.9 ms</text>
+
+      <g transform="translate(165, 0)">
+        <rect width="150" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <text x="12" y="22" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="700">P95 SLA (TARGET &lt;25ms)</text>
+        <text x="12" y="42" fill="#38bdf8" font-family="monospace" font-size="16" font-weight="900">9.45 ms</text>
+      </g>
+
+      <g transform="translate(330, 0)">
+        <rect width="150" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <text x="12" y="22" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="700">P99 TAIL LATENCY</text>
+        <text x="12" y="42" fill="#c084fc" font-family="monospace" font-size="16" font-weight="900">12.2 ms</text>
+      </g>
+    </g>
+  </g>
+</svg>

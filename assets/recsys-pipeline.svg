@@ -1,0 +1,111 @@
+<svg width="1100" height="260" viewBox="0 0 1100 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stage-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="stage-active" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1100" height="260" rx="16" fill="#090d16" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Stage 1 -->
+  <g transform="translate(30, 30)">
+    <rect width="180" height="200" rx="12" fill="url(#stage-bg)" stroke="#334155" stroke-width="1" />
+    <circle cx="25" cy="30" r="12" fill="#3b82f6" opacity="0.2" />
+    <text x="25" y="34" fill="#60a5fa" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">1</text>
+    <text x="45" y="34" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="800">Multi-Channel</text>
+    <text x="45" y="50" fill="#94a3b8" font-family="sans-serif" font-size="10">Candidate Retrieval</text>
+    <line x1="15" y1="65" x2="165" y2="65" stroke="#334155" stroke-width="1" />
+    <text x="15" y="90" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Two-Tower Vector</text>
+    <text x="15" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Co-occurrence CF</text>
+    <text x="15" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Markov Window</text>
+    <text x="15" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Trending Velocity</text>
+    <rect x="15" y="180" width="150" height="15" rx="4" fill="#020617" />
+    <text x="90" y="191" fill="#38bdf8" font-family="monospace" font-size="9" text-anchor="middle">Pool: 200 items</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M218 130 L238 130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+  <polygon points="238,126 246,130 238,134" fill="#64748b" />
+
+  <!-- Stage 2 -->
+  <g transform="translate(250, 30)">
+    <rect width="180" height="200" rx="12" fill="url(#stage-bg)" stroke="#334155" stroke-width="1" />
+    <circle cx="25" cy="30" r="12" fill="#8b5cf6" opacity="0.2" />
+    <text x="25" y="34" fill="#a78bfa" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">2</text>
+    <text x="45" y="34" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="800">Feature Store</text>
+    <text x="45" y="50" fill="#94a3b8" font-family="sans-serif" font-size="10">Real-Time Signals</text>
+    <line x1="15" y1="65" x2="165" y2="65" stroke="#334155" stroke-width="1" />
+    <text x="15" y="90" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Cosine Similarity</text>
+    <text x="15" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; User Brand Affinity</text>
+    <text x="15" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Price Affinity Delta</text>
+    <text x="15" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Historical CTR</text>
+    <rect x="15" y="180" width="150" height="15" rx="4" fill="#020617" />
+    <text x="90" y="191" fill="#c084fc" font-family="monospace" font-size="9" text-anchor="middle">Feature Matrix: 6D</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <polygon points="438,126 446,130 438,134" fill="#64748b" />
+  <line x1="430" y1="130" x2="438" y2="130" stroke="#64748b" stroke-width="2" />
+
+  <!-- Stage 3 (Featured) -->
+  <g transform="translate(450, 20)">
+    <rect width="200" height="220" rx="14" fill="url(#stage-active)" stroke="#6366f1" stroke-width="2" />
+    <circle cx="25" cy="30" r="12" fill="#6366f1" opacity="0.3" />
+    <text x="25" y="34" fill="#818cf8" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">3</text>
+    <text x="45" y="34" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="900">LightGBM LTR</text>
+    <text x="45" y="50" fill="#a5b4fc" font-family="sans-serif" font-size="10">LambdaMART Ranker</text>
+    <line x1="15" y1="65" x2="185" y2="65" stroke="#4f46e5" stroke-width="1" />
+    <text x="15" y="90" fill="#e0e7ff" font-family="sans-serif" font-size="11">&bull; Pairwise NDCG Loss</text>
+    <text x="15" y="115" fill="#e0e7ff" font-family="sans-serif" font-size="11">&bull; Gradient Boosted Trees</text>
+    <text x="15" y="140" fill="#e0e7ff" font-family="sans-serif" font-size="11">&bull; Non-linear Interactivity</text>
+    <text x="15" y="165" fill="#34d399" font-family="sans-serif" font-size="11">&bull; Tree Shapley Attribs</text>
+    <rect x="15" y="185" width="170" height="22" rx="6" fill="#020617" />
+    <text x="100" y="200" fill="#34d399" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">NDCG@10: 0.884</text>
+  </g>
+
+  <!-- Arrow 3 -> 4 -->
+  <polygon points="658,126 666,130 658,134" fill="#64748b" />
+  <line x1="650" y1="130" x2="658" y2="130" stroke="#64748b" stroke-width="2" />
+
+  <!-- Stage 4 -->
+  <g transform="translate(670, 30)">
+    <rect width="180" height="200" rx="12" fill="url(#stage-bg)" stroke="#334155" stroke-width="1" />
+    <circle cx="25" cy="30" r="12" fill="#10b981" opacity="0.2" />
+    <text x="25" y="34" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">4</text>
+    <text x="45" y="34" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="800">MMR Diversity</text>
+    <text x="45" y="50" fill="#94a3b8" font-family="sans-serif" font-size="10">Business Reranking</text>
+    <line x1="15" y1="65" x2="165" y2="65" stroke="#334155" stroke-width="1" />
+    <text x="15" y="90" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Maximal Marginal Rel.</text>
+    <text x="15" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Anti-Domination Cap</text>
+    <text x="15" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Stock Availability</text>
+    <text x="15" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Freshness Penalty</text>
+    <rect x="15" y="180" width="150" height="15" rx="4" fill="#020617" />
+    <text x="90" y="191" fill="#34d399" font-family="monospace" font-size="9" text-anchor="middle">Lambda: 0.7 MMR</text>
+  </g>
+
+  <!-- Arrow 4 -> 5 -->
+  <polygon points="858,126 866,130 858,134" fill="#64748b" />
+  <line x1="850" y1="130" x2="858" y2="130" stroke="#64748b" stroke-width="2" />
+
+  <!-- Stage 5 -->
+  <g transform="translate(870, 30)">
+    <rect width="200" height="200" rx="12" fill="url(#stage-bg)" stroke="#334155" stroke-width="1" />
+    <circle cx="25" cy="30" r="12" fill="#f59e0b" opacity="0.2" />
+    <text x="25" y="34" fill="#fbbf24" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">5</text>
+    <text x="45" y="34" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="800">Top-K Serving</text>
+    <text x="45" y="50" fill="#94a3b8" font-family="sans-serif" font-size="10">Personalized Feed</text>
+    <line x1="15" y1="65" x2="185" y2="65" stroke="#334155" stroke-width="1" />
+    <text x="15" y="90" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Redis Keyspace TTL</text>
+    <text x="15" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Multi-Currency FX</text>
+    <text x="15" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Buy Box Winners</text>
+    <text x="15" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="11">&bull; Explanations Grounding</text>
+    <rect x="15" y="180" width="170" height="15" rx="4" fill="#020617" />
+    <text x="100" y="191" fill="#f59e0b" font-family="monospace" font-size="9" text-anchor="middle">P95 Latency: &lt;18ms</text>
+  </g>
+</svg>

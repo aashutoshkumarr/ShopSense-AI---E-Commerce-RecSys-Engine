@@ -6,6 +6,7 @@
   <img src="assets/shopsense-hero.png" alt="ShopSense AI Storefront & RecSys Platform" width="100%" />
 </p>
 
+[![CI/CD Pipeline](https://github.com/aashutoshkumarr/ShopSense-AI---E-Commerce-RecSys-Engine/actions/workflows/ci.yml/badge.svg)](https://github.com/aashutoshkumarr/ShopSense-AI---E-Commerce-RecSys-Engine/actions/workflows/ci.yml)
 [![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript 5.8](https://img.shields.io/badge/TypeScript_5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js 22](https://img.shields.io/badge/Node.js_22-5FA04E?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -66,6 +67,43 @@ graph TD
         C2 --> S1[Server-Sent Events: Real-Time Fleet GPS]
     end
 ```
+
+---
+
+## 🖥️ Live Platform & Architectural Telemetry Showcase
+
+<div align="center">
+
+### Executive Admin & Machine Learning Control Center
+<p align="center">
+  <img src="assets/shopsense-dashboard.png" alt="ShopSense Executive Admin & ML Control Center" width="100%" />
+</p>
+
+<br/>
+
+### Multi-Domain Consumer Storefront & Real-Time Commerce
+<p align="center">
+  <img src="assets/shopsense-storefront.png" alt="ShopSense Multi-Domain Consumer Storefront" width="100%" />
+</p>
+
+<br/>
+
+<table>
+  <tr>
+    <td width="50%">
+      <h4 align="center">🎯 RecSys Pipeline Inspector & Explainability</h4>
+      <img src="assets/shopsense-inspector.png" alt="RecSys Pipeline Inspector" width="100%" />
+      <p align="center"><em>Real-time multi-channel candidate generation, feature store signals, and LightGBM LambdaMART ranking attribution.</em></p>
+    </td>
+    <td width="50%">
+      <h4 align="center">⚡ FAANG Distributed Tracing & Circuit Breakers</h4>
+      <img src="assets/shopsense-observability.png" alt="OpenTelemetry Observability Console" width="100%" />
+      <p align="center"><em>W3C traceparent waterfall spans, Netflix Hystrix circuit breaker states, and live P50/P95/P99 latency SLAs.</em></p>
+    </td>
+  </tr>
+</table>
+
+</div>
 
 ---
 

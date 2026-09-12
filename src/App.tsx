@@ -104,7 +104,14 @@ import { parseNaturalLanguageIntent } from './engine/semanticIntentService';
 function AppContent() {
   const { showToast } = useToast();
   // Navigation View State
-  const [activeTab, setActiveTab] = useState<MainTabType>('storefront');
+  const [activeTab, setActiveTab] = useState<MainTabType>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get('tab');
+      if (tabParam) return tabParam as MainTabType;
+    }
+    return 'storefront';
+  });
 
   // Role & Session State
   const [activeRole, setActiveRole] = useState<UserRole>('customer');
@@ -656,6 +663,7 @@ function AppContent() {
         wishlistCount={wishlistIds.length}
         ordersCount={orderCount}
         activeRole={activeRole}
+        authUser={authUser}
         selectedCategory={selectedCategory}
         onSelectCategory={(cat) => {
           setSelectedCategory(cat);

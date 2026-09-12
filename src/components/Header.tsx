@@ -36,7 +36,7 @@ import {
   LogIn,
   LogOut
 } from 'lucide-react';
-import { UserPersona, Currency, UserRole } from '../types';
+import { UserPersona, Currency, UserRole, AuthUser } from '../types';
 
 export type MainTabType = 
   | 'storefront' 
@@ -70,6 +70,7 @@ interface HeaderProps {
   wishlistCount: number;
   ordersCount: number;
   activeRole: UserRole;
+  authUser?: AuthUser;
   selectedCategory?: string;
   onSelectCategory?: (category: string) => void;
   categories?: string[];
@@ -110,6 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
   wishlistCount,
   ordersCount,
   activeRole,
+  authUser,
   selectedCategory = 'All',
   onSelectCategory,
   categories = ['All', 'Laptops', 'Audio', 'Smartphones', 'Smart Home', 'Gaming', 'Grocery', 'Bazaar', 'Pharmacy', 'Accessories', 'Wearables'],
@@ -251,6 +253,19 @@ export const Header: React.FC<HeaderProps> = ({
               <option value="JPY">🇯🇵 ¥ JPY</option>
             </select>
           </div>
+
+          {/* Developer & ML Console Quick Access Button */}
+          {isStorefront && (
+            <button
+              onClick={() => onSelectTab('admin_control')}
+              className="hidden md:flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-950 hover:bg-slate-850 border border-slate-800 text-cyan-300 font-mono text-[11px] font-semibold transition cursor-pointer shadow-xs"
+              title="Open Unified Admin, ML Engine & RecSys Observability Console"
+            >
+              <Terminal className="h-3 w-3 text-cyan-400" />
+              <span>Developer &amp; ML Console</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            </button>
+          )}
 
           {/* When in developer inspection console, show clean Return to Store button */}
           {!isStorefront && (
@@ -440,8 +455,8 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          {/* Sign In / Authentication Button */}
-          {onOpenAuth && (
+          {/* Sign In / Authentication Button (Only when not authenticated) */}
+          {onOpenAuth && (!authUser || (authUser as any).isGuest) && (
             <button
               onClick={onOpenAuth}
               className="flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-slate-900 hover:bg-black text-white font-bold text-xs transition shadow-2xs group cursor-pointer active:scale-95"
@@ -461,8 +476,19 @@ export const Header: React.FC<HeaderProps> = ({
               <img
                 src={currentPersona.avatar}
                 alt={currentPersona.name}
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                  const fb = (e.target as HTMLElement).nextElementSibling;
+                  if (fb) (fb as HTMLElement).style.display = 'flex';
+                }}
                 className="h-7 w-7 rounded-full object-cover ring-1 ring-slate-300"
               />
+              <div 
+                style={{ display: 'none' }}
+                className="h-7 w-7 rounded-full bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white text-xs font-bold items-center justify-center ring-1 ring-slate-300 select-none shrink-0"
+              >
+                {currentPersona.name.charAt(0)}
+              </div>
               <div className="hidden md:block text-left">
                 <div className="text-xs font-bold text-slate-900 leading-tight">
                   {currentPersona.name}

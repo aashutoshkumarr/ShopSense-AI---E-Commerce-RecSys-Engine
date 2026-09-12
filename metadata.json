@@ -1,0 +1,6 @@
+{
+  "name": "ShopSense AI - E-Commerce & RecSys Engine",
+  "description": "Flagship full-stack intelligent e-commerce platform featuring LightGBM LambdaMART recommendations, K-Means customer behavioral segmentation with RFM clustering, segment-targeted personalized reward coupons, NLP aspect sentiment extraction, real-time wallet & loyalty points engine, smart cart co-purchases, order tracking, and unified Admin & ML Control Center.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
